@@ -1,0 +1,24 @@
+# Dependencies and environments
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Build and coverage output
+dist/
+build/
+coverage/
+.pytest_cache/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Logs and OS/editor files
+*.log
+.DS_Store
+.vscode/
+.idea/
