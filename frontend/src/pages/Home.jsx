@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { motion as Motion } from "framer-motion";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -51,14 +52,14 @@ const Home = () => {
           SmartTraffic 
         </h1>
 
-        <motion.button
+        <Motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => navigate("/simulation")}
           className="bg-green-500 px-6 py-2 rounded-full shadow-lg z-10"
         >
           Launch Demo
-        </motion.button>
+        </Motion.button>
       </nav>
 
       {/* HERO */}
@@ -67,7 +68,7 @@ const Home = () => {
         {/* 🔥 FIXED OVERLAY */}
         <div className="absolute inset-0 bg-green-500/10 blur-3xl pointer-events-none"></div>
 
-        <motion.h1
+        <Motion.h1
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
@@ -75,20 +76,20 @@ const Home = () => {
         >
           🚦 AI Smart  
           <span className="text-green-400"> Traffic System</span>
-        </motion.h1>
+        </Motion.h1>
 
         <p className="mt-6 text-gray-400 max-w-xl mx-auto relative z-10">
           Optimize traffic flow, reduce congestion, and save fuel using intelligent AI-powered signal control.
         </p>
 
-        <motion.button
+        <Motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => navigate("/simulation")}
           className="relative z-10 mt-8 bg-green-500 px-8 py-3 rounded-full text-lg shadow-xl"
         >
            Start Simulation
-        </motion.button>
+        </Motion.button>
       </div>
 
       {/* MINI SIMULATION */}
@@ -124,17 +125,17 @@ const Home = () => {
       </div>
 
       {/* PROBLEM */}
-      <motion.div {...reveal} className="mt-20 px-4 md:px-8 text-center">
+      <Motion.div {...reveal} className="mt-20 px-4 md:px-8 text-center">
         <h2 className="text-2xl md:text-3xl font-bold text-red-400">
           🚨 The Problem
         </h2>
         <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
           Fixed traffic systems create unnecessary delays, fuel wastage, and fail to prioritize emergency vehicles.
         </p>
-      </motion.div>
+      </Motion.div>
 
       {/* STATS */}
-      <motion.div {...reveal} className="mt-16 px-4 md:px-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+      <Motion.div {...reveal} className="mt-16 px-4 md:px-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
 
         {counts.map((val, i) => {
           const labels = [
@@ -153,10 +154,10 @@ const Home = () => {
           );
         })}
 
-      </motion.div>
+      </Motion.div>
 
       {/* FEATURES */}
-      <motion.div {...reveal} className="mt-20 px-4 md:px-8 text-center">
+      <Motion.div {...reveal} className="mt-20 px-4 md:px-8 text-center">
         <h2 className="text-2xl md:text-3xl font-bold text-green-400">
            Key Features
         </h2>
@@ -176,23 +177,23 @@ const Home = () => {
           </div>
 
         </div>
-      </motion.div>
+      </Motion.div>
 
       {/* CTA */}
-      <motion.div {...reveal} className="mt-20 text-center">
+      <Motion.div {...reveal} className="mt-20 text-center">
         <h2 className="text-2xl md:text-3xl font-bold">
           Ready to experience smart traffic?
         </h2>
 
-        <motion.button
+        <Motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => navigate("/simulation")}
           className="mt-6 bg-green-500 px-10 py-3 rounded-full text-lg shadow-xl"
         >
            Launch Now
-        </motion.button>
-      </motion.div>
+        </Motion.button>
+      </Motion.div>
 
       {/* FOOTER */}
       <div className="mt-20 text-center text-gray-500 pb-6">
