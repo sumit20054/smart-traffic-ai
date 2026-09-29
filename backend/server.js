@@ -32,14 +32,15 @@ function generateTraffic() {
 }
 
 // 📊 Traffic API
-app.get("/traffic", (req, res) => {
+app.get(["/api/traffic", "/traffic"], (req, res) => {
   res.json(generateTraffic());
 });
 
 // 🤖 ML Prediction API
-app.get("/ml-predict", async (req, res) => {
+app.get(["/api/ml-predict", "/ml-predict"], async (req, res) => {
   try {
-    const response = await fetch("http://127.0.0.1:8000/ml-predict");
+    const mlModelUrl = process.env.ML_MODEL_URL || "http://127.0.0.1:8000";
+    const response = await fetch(new URL("/ml-predict", mlModelUrl));
 
     if (!response.ok) {
       throw new Error(`ML server error: ${response.status}`);

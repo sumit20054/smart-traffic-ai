@@ -41,8 +41,7 @@ const Simulation = () => {
   // 🔥 ML API (SAFE)
 const fetchMLData = async () => {
   try {
-    const apiUrl = import.meta.env.VITE_ML_API_URL || "https://smart-traffic-ai-nqno.onrender.com";
-    const res = await fetch(`${apiUrl}/ml-predict`);
+    const res = await fetch("/api/ml-predict");
     const data = await res.json();
 
     setTraffic({
