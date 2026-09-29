@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import MapView from "../components/MapView";
+import MapView from "../Components/MapView";
 import {
   BarChart,
   Bar,
@@ -24,7 +24,7 @@ const Simulation = () => {
   const [green, setGreen] = useState("north");
   const [signalState, setSignalState] = useState("green");
   const [mode, setMode] = useState("AI");
-  const [timer, setTimer] = useState(10);
+  const [timer] = useState(10);
   const [reason, setReason] = useState("");
   const [emergency, setEmergency] = useState(false);
 
@@ -38,17 +38,11 @@ const Simulation = () => {
 
   const [history, setHistory] = useState([]);
 
-  const [cars] = useState({
-    north: Array(6).fill(0),
-    south: Array(5).fill(0),
-    east: Array(7).fill(0),
-    west: Array(4).fill(0),
-  });
-
   // 🔥 ML API (SAFE)
 const fetchMLData = async () => {
   try {
-    const res = await fetch("https://smart-traffic-ai-nqno.onrender.com/ml-predict");
+    const apiUrl = import.meta.env.VITE_ML_API_URL || "https://smart-traffic-ai-nqno.onrender.com";
+    const res = await fetch(`${apiUrl}/ml-predict`);
     const data = await res.json();
 
     setTraffic({
@@ -59,7 +53,7 @@ const fetchMLData = async () => {
     });
 
     setReason(data.reason);
-  } catch (err) {
+  } catch {
     console.log("ML API not running → using simulation");
   }
 };
